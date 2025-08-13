@@ -47,8 +47,9 @@
 </section>
 
 <!-- Services Section -->
+<!-- Services Section -->
 <section id="services" class="py-20 bg-gray-900">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
     <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-green-500/50 transition">
       <h3 class="text-2xl text-green-400 mb-2">Networking</h3>
       <p>Advanced network setup, monitoring, and security solutions.</p>
@@ -61,8 +62,13 @@
       <h3 class="text-2xl text-green-400 mb-2">H/S Engineering</h3>
       <p>Hardware design, software solutions, and system optimization.</p>
     </div>
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-green-500/50 transition">
+      <h3 class="text-2xl text-green-400 mb-2">Machine Learning</h3>
+      <p>AI modeling, predictive analytics, and intelligent system design.</p>
+    </div>
   </div>
 </section>
+
 
 <!-- Footer -->
 <footer class="w-full text-center mt-8 py-4 text-gray-400 bg-black">
@@ -70,7 +76,7 @@
 </footer>
 
 <script>
-// Matrix Rain Effect
+// Matrix Rain Effect (Darker Version)
 const canvas = document.getElementById('matrixCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -83,10 +89,11 @@ const columns = canvas.width / fontSize;
 const drops = Array(Math.floor(columns)).fill(1);
 
 function drawMatrix() {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; // fade effect
+  // Darker background fade
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.15)'; // increase alpha for darker trails
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = '#0F0'; // green text
+  ctx.fillStyle = '#0A3D0A'; // darker forest green letters
   ctx.font = fontSize + 'px monospace';
 
   for (let i = 0; i < drops.length; i++) {
@@ -107,6 +114,7 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
 });
 </script>
+
 
 </body>
 </html>
