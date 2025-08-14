@@ -31,7 +31,7 @@
     <ul class="flex gap-6">
       <li><a href="#services" class="hover:text-green-400">Services</a></li>
       <li><a href="#projects" class="hover:text-green-400">Projects</a></li>
-      <li><a href="#contact" class="hover:text-green-400">Contact</a></li>
+      <li><a href="mailto:fiddawg.co.ke@gmail.com" class="hover:text-green-400">Email Us</a></li>
     </ul>
   </nav>
 </header>
@@ -46,7 +46,6 @@
   </div>
 </section>
 
-<!-- Services Section -->
 <!-- Services Section -->
 <section id="services" class="py-20 bg-gray-900">
   <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
@@ -69,6 +68,66 @@
   </div>
 </section>
 
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-gray-900">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-green-400 mb-10">Our Projects</h2>
+
+    <!-- Networking Projects -->
+    <h3 class="text-2xl text-green-300 mb-4">Networking Projects</h3>
+
+    <!-- Captive Portal Technology -->
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-green-500/50 transition mb-8">
+      <h4 class="text-xl text-green-400 mb-3">Captive Portal Technology</h4>
+      <p id="captive-short" class="text-gray-300">
+        Captive portals redirect users to a login or payment page before internet access is granted...
+      </p>
+      <p id="captive-full" class="hidden text-gray-300 mt-2">
+        They’re widely used in public Wi-Fi, hotels, and enterprise networks for authentication, payment
+        processing, and usage tracking. Our solutions integrate with payment systems like M-Pesa, provide
+        bandwidth control, and support real-time monitoring for secure and smooth onboarding.Supports more than one Router concurrently.
+      </p>
+      <div class="mt-4 flex gap-2 overflow-x-auto">
+        <img src="/static/image1.jpg" alt="Captive Portal Example" class="h-40 rounded-lg shadow-lg">
+        <img src="/static/image2.jpg" alt="Captive Portal UI" class="h-40 rounded-lg shadow-lg">
+          <img src="/static/image3.jpg" alt="Captive Portal UI" class="h-40 rounded-lg shadow-lg">
+          <img src="/static/image4.jpg" alt="Captive Portal UI" class="h-40 rounded-lg shadow-lg">
+      </div>
+      <button id="toggle-btn" class="mt-4 text-green-400 hover:text-green-300 underline">
+        Read more
+      </button>
+    </div>
+
+    <!-- Cybersecurity Projects -->
+    <h3 class="text-2xl text-green-300 mb-4">Cybersecurity Projects</h3>
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-green-500/50 transition mb-8">
+      <p>Penetration testing, threat analysis, incident response, and endpoint hardening projects.</p>
+    </div>
+
+    <!-- Machine Learning Projects -->
+    <h3 class="text-2xl text-green-300 mb-4">Machine Learning Projects</h3>
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-green-500/50 transition">
+      <p>Predictive analytics, AI modeling, and intelligent automation projects.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Expand/Collapse Toggle
+  const btn = document.getElementById('toggle-btn');
+  const shortText = document.getElementById('captive-short');
+  const fullText = document.getElementById('captive-full');
+
+  btn.addEventListener('click', () => {
+    fullText.classList.toggle('hidden');
+    if (fullText.classList.contains('hidden')) {
+      btn.textContent = 'Read more';
+    } else {
+      btn.textContent = 'Read less';
+    }
+  });
+</script>
+
 
 <!-- Footer -->
 <footer class="w-full text-center mt-8 py-4 text-gray-400 bg-black">
@@ -83,7 +142,7 @@ const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+const letters = 'ABCDEFiddawgGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
 const fontSize = 16;
 const columns = canvas.width / fontSize;
 const drops = Array(Math.floor(columns)).fill(1);
