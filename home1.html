@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FidDawg TechHub</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/static/brandlogo.png">
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #0b3d2e, #020a07 60%);
+    color: #e5fff3;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.08em;
+  }
+  #matrixCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+  }
+  .overlay {
+    position: relative;
+    z-index: 1;
+  }
+  .glass {
+    background: rgba(10, 40, 30, 0.6);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(46, 204, 113, 0.25);
+  }
+  .neon {
+    text-shadow: 0 0 10px rgba(46, 204, 113, 0.8);
+  }
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<canvas id="matrixCanvas"></canvas>
+
+<!-- Header -->
+<header class="overlay fixed top-0 w-full flex justify-between items-center px-8 py-5 glass z-50">
+  <h1 class="text-2xl text-green-400 neon font-bold">FidDawg TechHub</h1>
+  <nav>
+    <ul class="flex gap-8 text-green-300 tracking-widest text-sm">
+      <li><a href="#services" class="hover:text-green-400">SERVICES</a></li>
+      <li><a href="#projects" class="hover:text-green-400">PROJECTS</a></li>
+      <li><a href="mailto:fiddawg.co.ke@gmail.com" class="hover:text-green-400">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="overlay h-screen flex flex-col justify-center items-center text-center px-4">
+  <h2 class="text-6xl text-green-400 neon mb-6">ENGINEERING THE FUTURE</h2>
+  <p class="max-w-2xl text-lg text-green-100/80 mb-10">
+    Advanced Networking • Cybersecurity • AI Systems • Hardware Innovation
+  </p>
+  <button class="px-10 py-4 rounded-full bg-green-500/90 hover:bg-green-400 text-black font-bold tracking-widest shadow-lg shadow-green-500/40 transition">
+    INITIATE
+  </button>
+</section>
+
+<!-- Services -->
+<section id="services" class="overlay py-24">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 px-6">
+
+    <div class="glass p-8 rounded-2xl hover:shadow-green-500/50 hover:shadow-2xl transition">
+      <h3 class="text-xl text-green-400 mb-3">NETWORK ARCHITECTURE</h3>
+      <p class="text-sm text-green-100/80">ISP-grade routing, wireless backhaul, monitoring & automation.</p>
+    </div>
+
+    <div class="glass p-8 rounded-2xl hover:shadow-green-500/50 hover:shadow-2xl transition">
+      <h3 class="text-xl text-green-400 mb-3">CYBER DEFENSE</h3>
+      <p class="text-sm text-green-100/80">Offensive & defensive security, audits, pentesting, hardening.</p>
+    </div>
+
+    <div class="glass p-8 rounded-2xl hover:shadow-green-500/50 hover:shadow-2xl transition">
+      <h3 class="text-xl text-green-400 mb-3">SYSTEM ENGINEERING</h3>
+      <p class="text-sm text-green-100/80">Embedded systems, Linux servers, scalable software stacks.</p>
+    </div>
+
+    <div class="glass p-8 rounded-2xl hover:shadow-green-500/50 hover:shadow-2xl transition">
+      <h3 class="text-xl text-green-400 mb-3">AI & ML LABS</h3>
+      <p class="text-sm text-green-100/80">Predictive models, automation, data-driven intelligence.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="overlay py-24 bg-black/40">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl text-green-400 neon mb-12">SELECTED PROJECTS</h2>
+
+    <div class="glass p-8 rounded-2xl mb-10">
+      <h3 class="text-xl text-green-300 mb-3">Captive Portal & ISP Systems</h3>
+      <p class="text-green-100/80 text-sm">
+        High-performance hotspot platforms with M-Pesa integration, bandwidth control,
+        multi-router support, and real-time analytics.
+      </p>
+    </div>
+
+    <div class="glass p-8 rounded-2xl mb-10">
+      <h3 class="text-xl text-green-300 mb-3">Cybersecurity Operations</h3>
+      <p class="text-green-100/80 text-sm">
+        Threat modeling, red teaming, endpoint defense and incident response systems.
+      </p>
+    </div>
+
+    <div class="glass p-8 rounded-2xl">
+      <h3 class="text-xl text-green-300 mb-3">Machine Intelligence</h3>
+      <p class="text-green-100/80 text-sm">
+        AI-powered automation, predictive analytics and optimization engines.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="overlay text-center py-8 text-green-300 text-sm">
+  © 2026 FidDawg TechHub • Future-Ready Technology
+</footer>
+
+<script>
+// Matrix Rain — Futuristic Green
+const canvas = document.getElementById('matrixCanvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const chars = 'FIDDAWGTECHHUB0123456789<>/{}[]#$%';
+const fontSize = 15;
+let columns = Math.floor(canvas.width / fontSize);
+let drops = Array(columns).fill(1);
+
+function draw() {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = '#2ecc71';
+  ctx.font = fontSize + 'px monospace';
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = chars[Math.floor(Math.random() * chars.length)];
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.97) drops[i] = 0;
+    drops[i]++;
+  }
+}
+setInterval(draw, 30);
+</script>
+
+</body>
+</html>
+
